@@ -29,9 +29,9 @@ NSString *ZH_PARAM_UPC = @"upc";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self setupSession];
+    _responseTextView.text = @"";
 
-    //[self lookupProduct:ZH_UPC];
+    [self setupSession];
 }
 
 #pragma mark Helpers
@@ -68,7 +68,13 @@ NSString *ZH_PARAM_UPC = @"upc";
             NSString *xml = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             NSLog(@"xml: %@", xml);
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                self.responseTextView.text = xml;
+                NSString *output = [NSString stringWithFormat:@"Response for %@\n\n"
+                                                              @"TODO: Parse XML into a data structure\n\n"
+                                                               "%@",
+                                             upc,
+                                             xml];
+                self.responseTextView.text = output;
+                self.upcTextField.text = @"";
             }];
         }
     }];
