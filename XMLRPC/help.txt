@@ -1,0 +1,95 @@
+2016-06-09 00:22:25.636 XMLRPC[7598:4019641] Request body: <?xml version="1.0"?><methodCall><methodName>help</methodName><params><param><value><struct><member><name>rpc_key</name><value><string>535f92a89b1a145fd80e7be45d14eacf1ed0599c</string></value></member></struct></value></param><param><value><struct><member><name>upc</name><value><string>016000264793</string></value></member></struct></value></param></params></methodCall>
+2016-06-09 00:22:25.639 XMLRPC[7598:4019641] The connection, CFDE1334-8AD3-4EFB-9A8B-6EC23C1B3267, has been established!
+2016-06-09 00:22:25.859 XMLRPC[7598:4019641] -[ViewController request:canAuthenticateAgainstProtectionSpace:]:104
+2016-06-09 00:22:25.971 XMLRPC[7598:4019641] -[ViewController request:didSendBodyData:]:93
+2016-06-09 00:22:26.099 XMLRPC[7598:4019641] -[ViewController request:didReceiveResponse:]:88
+2016-06-09 00:22:26.099 XMLRPC[7598:4019641] reponse: [body=<?xml version="1.0"?>
+<methodResponse>
+<params>
+<param><value><struct>
+<member><name>help</name><value><string>
+Methods now are passed one struct.  Required parameters are passed as
+members of the struct.  Key values are case-sensitive.
+
+The following fields are shared with multiple methods, and are described
+here for clarity:
+
+rpc_key: your assigned RPC key
+upc: a 12-digit string (not a number/integer)
+ean: a 13-digit string (not a number/integer)
+
+You can obtain an RPC key through your &quot;Account Info&quot; page on the
+web site.
+
+Return values will always be a struct.  Certain keys will be present in
+every response:  The 'status' field will contain a one-word description
+of the result, basically indicating success or failure.  The 'message'
+field will give more detail about the status of the request.
+
+help
+Show available methods and their parameters.
+(what you're looking at now)
+
+lookup
+Lookup upc database entry
+Required parameters:
+rpc_key
+Either ean or upc, but not both
+
+! may not be complete, max limited to 15 for now
+search
+Full text search on item database
+Required parameters:
+rpc_key
+search (string)
+Optional parameters:
+max_results
+Returns 5 results by default, up to 100 max.
+Search terms must be separated by whitespace,
+and must be at least 3 characters each.
+
+! may not be complete, but should be working
+writeEntry
+Add or modify an entry in the database.
+Required parameters:
+rpc_key
+Either ean or upc, but not both
+description
+Optional parameters:
+size
+
+calculateCheckDigit
+Return full EAN13 given UPC or EAN without check digit
+Required parameters:
+rpc_key
+Either ean or upc, but not both
+In this case, ean must be 12 digits plus C or X,
+or upc must be 11 digits plus C or X
+
+convertUPCE
+Return expanded UPC and EAN13 given UPC type E.
+Required parameters:
+rpc_key
+upce: an 8-digit string (not a number/integer)
+
+decodeCueCat
+Decode CueCat scan.
+Required parameters:
+rpc_key
+CCstring: string read from a CueCat scanner
+
+</string></value>
+</member>
+<member><name>message</name><value><string>Thank you!</string></value>
+</member>
+<member><name>status</name><value><string>success</string></value>
+</member>
+</struct></value>
+</param>
+</params>
+</methodResponse>
+, object={
+help = "Methods now are passed one struct.  Required parameters are passed as\nmembers of the struct.  Key values are case-sensitive.\n\nThe following fields are shared with multiple methods, and are described\nhere for clarity:\n\nrpc_key: your assigned RPC key\nupc: a 12-digit string (not a number/integer)\nean: a 13-digit string (not a number/integer)\n\nYou can obtain an RPC key through your \"Account Info\" page on the\nweb site.\n\nReturn values will always be a struct.  Certain keys will be present in\nevery response:  The 'status' field will contain a one-word description\nof the result, basically indicating success or failure.  The 'message'\nfield will give more detail about the status of the request.\n\nhelp\n\tShow available methods and their parameters.\n\t(what you're looking at now)\n\nlookup\n\tLookup upc database entry\n\tRequired parameters:\n\t\trpc_key\n\t\tEither ean or upc, but not both\n\n! may not be complete, max limited to 15 for now\nsearch\n\tFull text search on item database\n\tRequired parameters:\n\t\trpc_key\n\t\tsearch (string)\n\tOptional parameters:\n\t\tmax_results\n\tReturns 5 results by default, up to 100 max.\n\tSearch terms must be separated by whitespace,\n\t\tand must be at least 3 characters each.\n\n! may not be complete, but should be working\nwriteEntry\n\tAdd or modify an entry in the database.\n\tRequired parameters:\n\t\trpc_key\n\t\tEither ean or upc, but not both\n\t\tdescription\n\tOptional parameters:\n\t\tsize\n\ncalculateCheckDigit\n\tReturn full EAN13 given UPC or EAN without check digit\n\tRequired parameters:\n\t\trpc_key\n\t\tEither ean or upc, but not both\n\tIn this case, ean must be 12 digits plus C or X,\n\t\tor upc must be 11 digits plus C or X\n\nconvertUPCE\n\tReturn expanded UPC and EAN13 given UPC type E.\n\tRequired parameters:\n\t\trpc_key\n\t\tupce: an 8-digit string (not a number/integer)\n\ndecodeCueCat\n\tDecode CueCat scan.\n\tRequired parameters:\n\t\trpc_key\n\t\tCCstring: string read from a CueCat scanner";
+message = "Thank you!";
+status = success;
+}]
